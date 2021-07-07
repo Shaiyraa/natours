@@ -17,10 +17,6 @@ exports.getTour = catchAsync(async (req, res, next) => {
 
   if (!tour) return next(new AppError("There is no tour with that name.", 404))
   res.status(200)
-    .set(
-      'Content-Security-Policy',
-      "default-src 'self' https://*; child-src 'self' https://* blob: data:; connect-src 'self' https://*  wss://*; font-src 'self' https://* blob: data:; img-src 'self' https://* blob: data:; media-src 'self' https://* blob: data:; object-src 'self' https://* blob: data:; script-src 'self' https://* 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://* 'unsafe-inline';"
-    )
     .render('tour', {
       title: tour.name,
       tour
@@ -46,11 +42,6 @@ exports.getMyTours = catchAsync(async (req, res, next) => {
 
 exports.getLoginForm = catchAsync(async (req, res, next) => {
   res.status(200)
-    .set(
-      'Content-Security-Policy',
-      "default-src 'self' https://*; child-src 'self' https://* blob: data:; connect-src *; font-src 'self' https://* blob: data:; img-src 'self' https://* blob: data:; media-src 'self' https://* blob: data:; object-src 'self' https://* blob: data:; script-src 'self' https://* 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://* 'unsafe-inline';"
-    )
-    .set('Access-Control-Allow-Origin', '*')
     .render('login', {
       title: "Log in to your account"
     });

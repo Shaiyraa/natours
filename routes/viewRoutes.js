@@ -16,10 +16,7 @@ router.get('/my-tours',
 
 router.use(isLoggedIn);
 
-router.get('/',
-  createBookingCheckout,
-  getOverview
-);
+router.get('/', getOverview);
 router.get('/tour/:slug', getTour);
 router.get('/login', getLoginForm);
 

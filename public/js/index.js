@@ -2,6 +2,7 @@ import { login, logout } from './login';
 import { displayMap } from './mapbox.js';
 import { updateSettings } from './updateSettings';
 import { bookTour } from './stripe';
+import { showAlert } from './alerts';
 
 const mapBox = document.getElementById('map');
 const loginForm = document.querySelector('.form--login');
